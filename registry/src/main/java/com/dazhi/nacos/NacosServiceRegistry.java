@@ -10,7 +10,7 @@ public class NacosServiceRegistry implements ServiceRegistry<Registration> {
 
     private String clusterName = "DEFAULT";
 
-    private NamingService namingService = new NacosNamingService();
+    private NamingService namingService = new NacosNamingService("nacos-tutorial-jar");
 
     @Override
     public void register(Registration registration) {
