@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration(proxyBeanMethods = false)
 @ConditionalOnDiscoveryEnabled
-@ConditionalOnNacosDiscoveryEnabled
+//@ConditionalOnNacosDiscoveryEnabled
 public class NacosDiscoveryAutoConfiguration {
     @Bean
     @ConditionalOnMissingBean

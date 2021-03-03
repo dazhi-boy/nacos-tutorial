@@ -30,6 +30,7 @@ public class NacosServerList extends AbstractServerList<NacosServer> {
     public List<NacosServer> getUpdatedListOfServers() {
         System.out.println("------------------------"+discoveryProperties.getServerAddr());
         System.out.println("------------------------在这里获取所有的service");
+        // 从nacos中获取service列表
         List<NacosServer> result = new ArrayList<>();
         Instance instance = new Instance();
         instance.setIp("127.0.0.1");
