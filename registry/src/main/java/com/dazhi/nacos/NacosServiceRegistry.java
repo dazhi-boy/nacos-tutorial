@@ -1,6 +1,8 @@
 package com.dazhi.nacos;
 
 import com.dazhi.naming.pojo.Instance;
+import com.dazhi.naming.pojo.NacosDiscoveryProperties;
+import com.dazhi.naming.pojo.NacosNamingService;
 import com.dazhi.naming.pojo.NamingService;
 import org.springframework.cloud.client.serviceregistry.Registration;
 import org.springframework.cloud.client.serviceregistry.ServiceRegistry;
@@ -26,7 +28,7 @@ public class NacosServiceRegistry implements ServiceRegistry<Registration> {
 //        String serviceId = registration.getServiceId();
         Instance instance = getNacosInstanceFromRegistration(registration);
 
-        namingService.registerInstance("nacos-tutorial-jar", group, instance);
+        namingService.registerInstance(nacosDiscoveryProperties.getService(), group, instance);
     }
 
     @Override

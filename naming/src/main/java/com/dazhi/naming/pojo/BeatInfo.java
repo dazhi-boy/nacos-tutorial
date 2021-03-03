@@ -1,4 +1,4 @@
-package com.dazhi.nacos;
+package com.dazhi.naming.pojo;
 
 import com.alibaba.fastjson.JSON;
 

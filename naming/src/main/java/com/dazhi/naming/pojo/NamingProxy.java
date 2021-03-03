@@ -1,14 +1,11 @@
-package com.dazhi.nacos;
+package com.dazhi.naming.pojo;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.dazhi.naming.pojo.CommonParams;
-import com.dazhi.naming.pojo.Instance;
 import com.dazhi.naming.utils.HttpClient;
 import com.dazhi.naming.utils.UtilAndComs;
 import com.dazhi.naming.utils.UuidUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.http.HttpMethod;
 import org.springframework.util.CollectionUtils;
 
 import java.io.UnsupportedEncodingException;
@@ -29,8 +26,15 @@ public class NamingProxy {
     private List<String> serverList = new ArrayList<String>();
     private List<String> serversFromEndpoint = new ArrayList<String>();
 
-    public NamingProxy(String namespace, String endpoint, String serverList, Properties properties) {
-        this.serverList.add("http://127.0.0.1:8848");
+    public NamingProxy(String namespaceId, String endpoint, String serverList, Properties properties) {
+
+        this.namespaceId = namespaceId;
+        if (StringUtils.isNotEmpty(serverList)) {
+            this.serverList = Arrays.asList(serverList.split(","));
+            if (this.serverList.size() == 1) {
+//                this.nacosDomain = serverList;
+            }
+        }
     }
 
     public JSONObject sendBeat(BeatInfo beatInfo, boolean lightBeatEnabled) {

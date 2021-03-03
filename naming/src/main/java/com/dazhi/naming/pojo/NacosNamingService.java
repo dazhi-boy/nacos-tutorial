@@ -1,4 +1,4 @@
-package com.dazhi.nacos;
+package com.dazhi.naming.pojo;
 
 import com.dazhi.naming.pojo.Instance;
 import com.dazhi.naming.pojo.NamingService;
@@ -21,6 +21,7 @@ public class NacosNamingService implements NamingService {
 
     public NacosNamingService(String serverList) {
         Properties properties = new Properties();
+        this.serverList = serverList;
         init(properties);
     }
 
@@ -32,7 +33,7 @@ public class NacosNamingService implements NamingService {
     @Override
     public void registerInstance(String serviceName, String groupName, Instance instance) {
         BeatInfo beatInfo = new BeatInfo();
-        beatInfo.setServiceName("nacos-tutorial-jar");
+        beatInfo.setServiceName(serviceName);
         beatInfo.setIp(instance.getIp());
         beatInfo.setPort(instance.getPort());
         beatInfo.setCluster(instance.getClusterName());
@@ -41,6 +42,6 @@ public class NacosNamingService implements NamingService {
         beatInfo.setScheduled(false);
         beatInfo.setPeriod(instance.getInstanceHeartBeatInterval());
 
-        beatReactor.addBeatInfo("nacos-tutorial-jar", beatInfo);
+        beatReactor.addBeatInfo(serviceName, beatInfo);
     }
 }

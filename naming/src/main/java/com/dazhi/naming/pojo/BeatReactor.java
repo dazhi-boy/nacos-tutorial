@@ -1,8 +1,6 @@
-package com.dazhi.nacos;
+package com.dazhi.naming.pojo;
 
 import com.alibaba.fastjson.JSONObject;
-import com.dazhi.naming.pojo.CommonParams;
-import com.dazhi.naming.pojo.Instance;
 
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledThreadPoolExecutor;

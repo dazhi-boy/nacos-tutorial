@@ -1,5 +1,6 @@
 package com.dazhi.nacos;
 
+import com.dazhi.naming.pojo.NacosDiscoveryProperties;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.cloud.client.serviceregistry.AutoServiceRegistrationProperties;
 import org.springframework.context.ApplicationContext;

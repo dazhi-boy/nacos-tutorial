@@ -1,5 +1,6 @@
 package com.dazhi.nacos;
 
+import com.dazhi.naming.pojo.NacosDiscoveryProperties;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.serviceregistry.Registration;
 import org.springframework.context.ApplicationContext;

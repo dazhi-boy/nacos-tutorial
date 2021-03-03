@@ -1,6 +1,5 @@
-package com.dazhi.nacos;
+package com.dazhi.naming.pojo;
 
-import com.dazhi.naming.pojo.NamingService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -470,7 +469,7 @@ public class NacosDiscoveryProperties {
 
         try {
 //            namingService = NacosFactory.createNamingService(getNacosProperties());
-            namingService = new NacosNamingService("nacos-tutorial-jar");
+            namingService = new NacosNamingService(serverAddr);
         }
         catch (Exception e) {
             return null;

@@ -1,4 +1,4 @@
-package com.dazhi.nacos;
+package com.dazhi.naming.pojo;
 
 public interface HttpHeaderConsts {
     String CLIENT_VERSION_HEADER = "Client-Version";
