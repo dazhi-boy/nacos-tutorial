@@ -6,9 +6,11 @@ import org.springframework.cloud.client.serviceregistry.Registration;
 import org.springframework.cloud.client.serviceregistry.ServiceRegistry;
 
 public class NacosAutoServiceRegistration extends AbstractAutoServiceRegistration<Registration> {
+    private NacosRegistration registration;
 
-    protected NacosAutoServiceRegistration(ServiceRegistry<Registration> serviceRegistry, AutoServiceRegistrationProperties autoServiceRegistrationProperties) {
+    public NacosAutoServiceRegistration(ServiceRegistry<Registration> serviceRegistry, AutoServiceRegistrationProperties autoServiceRegistrationProperties, NacosRegistration registration) {
         super(serviceRegistry, autoServiceRegistrationProperties);
+        this.registration = registration;
     }
 
     @Override

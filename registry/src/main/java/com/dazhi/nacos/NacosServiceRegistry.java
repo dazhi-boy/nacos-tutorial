@@ -6,11 +6,18 @@ import org.springframework.cloud.client.serviceregistry.Registration;
 import org.springframework.cloud.client.serviceregistry.ServiceRegistry;
 
 public class NacosServiceRegistry implements ServiceRegistry<Registration> {
+    private final NacosDiscoveryProperties nacosDiscoveryProperties;
+
     private String group = "DEFAULT_GROUP";
 
     private String clusterName = "DEFAULT";
 
     private NamingService namingService = new NacosNamingService("nacos-tutorial-jar");
+
+    public NacosServiceRegistry(NacosDiscoveryProperties nacosDiscoveryProperties) {
+        this.nacosDiscoveryProperties = nacosDiscoveryProperties;
+        this.namingService = nacosDiscoveryProperties.namingServiceInstance();
+    }
 
     @Override
     public void register(Registration registration) {
