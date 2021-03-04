@@ -1,4 +1,7 @@
+org.springframework.cloud.bootstrap.BootstrapConfiguration=\
+  com.dazhi.config.NacosConfigBootstrapConfiguration
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.dazhi.config.NacosConfigAutoConfiguration,\
   com.dazhi.nacos.NacosDiscoveryAutoConfiguration,\
   com.dazhi.nacos.NacosServiceRegistryAutoConfiguration,\
   com.dazhi.nacos.NacosConfigServerAutoConfiguration

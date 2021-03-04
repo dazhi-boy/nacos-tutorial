@@ -13,11 +13,7 @@ public class ConsumeController {
 
     @GetMapping("hello")
     public String getHello(String name) {
-
-//        String url = "http://localhost:8748/base?";
-
         String url = "http://nacos-jar-test/base";
-
         return restTemplate.getForObject(url, String.class);
     }
 }

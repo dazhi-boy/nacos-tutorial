@@ -14,7 +14,6 @@ public class NacosRegistration implements Registration, ServiceInstance {
 
     public NacosRegistration(NacosDiscoveryProperties nacosDiscoveryProperties,
                              ApplicationContext context) {
-        System.out.println("_+_+_NacosRegistration");
         this.nacosDiscoveryProperties = nacosDiscoveryProperties;
         this.context = context;
     }

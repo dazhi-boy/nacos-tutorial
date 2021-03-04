@@ -23,8 +23,6 @@ public class NacosServiceRegistry implements ServiceRegistry<Registration> {
 
     @Override
     public void register(Registration registration) {
-        System.out.println("--------------------------------------register");
-
 //        String serviceId = registration.getServiceId();
         Instance instance = getNacosInstanceFromRegistration(registration);
 
