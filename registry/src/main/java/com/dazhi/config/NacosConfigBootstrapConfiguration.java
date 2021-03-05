@@ -13,6 +13,9 @@ import org.springframework.context.annotation.Configuration;
         matchIfMissing = true
 )
 public class NacosConfigBootstrapConfiguration {
+    public NacosConfigBootstrapConfiguration() {
+    }
+
     @Bean
     @ConditionalOnMissingBean
     public NacosConfigProperties nacosConfigProperties() {
@@ -23,5 +26,10 @@ public class NacosConfigBootstrapConfiguration {
     @ConditionalOnMissingBean
     public NacosConfigManager nacosConfigManager(NacosConfigProperties nacosConfigProperties) {
         return new NacosConfigManager(nacosConfigProperties);
+    }
+
+    @Bean
+    public NacosPropertySourceLocator nacosPropertySourceLocator(NacosConfigManager nacosConfigManager) {
+        return new NacosPropertySourceLocator(nacosConfigManager);
     }
 }

@@ -1,5 +1,6 @@
 package com.dazhi.config;
 
+import com.dazhi.naming.api.config.PropertySourcesUtils;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -383,10 +384,10 @@ public class NacosConfigProperties {
     }
 
     private void enrichNacosConfigProperties(Properties nacosConfigProperties) {
-//        Map<String, Object> properties = PropertySourcesUtils.getSubProperties((ConfigurableEnvironment)this.environment, "spring.cloud.nacos.config");
-//        properties.forEach((k, v) -> {
-//            nacosConfigProperties.putIfAbsent(this.resolveKey(k), String.valueOf(v));
-//        });
+        Map<String, Object> properties = PropertySourcesUtils.getSubProperties((ConfigurableEnvironment)this.environment, "spring.cloud.nacos.config");
+        properties.forEach((k, v) -> {
+            nacosConfigProperties.putIfAbsent(this.resolveKey(k), String.valueOf(v));
+        });
     }
 
     private String resolveKey(String key) {
