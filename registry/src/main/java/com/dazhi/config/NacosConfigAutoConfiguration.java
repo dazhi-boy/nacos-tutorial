@@ -23,7 +23,22 @@ public class NacosConfigAutoConfiguration {
     }
 
     @Bean
+    public NacosRefreshProperties nacosRefreshProperties() {
+        return new NacosRefreshProperties();
+    }
+
+    @Bean
+    public NacosRefreshHistory nacosRefreshHistory() {
+        return new NacosRefreshHistory();
+    }
+
+    @Bean
     public NacosConfigManager nacosConfigManager(NacosConfigProperties nacosConfigProperties) {
         return new NacosConfigManager(nacosConfigProperties);
+    }
+
+    @Bean
+    public NacosContextRefresher nacosContextRefresher(NacosConfigManager nacosConfigManager, NacosRefreshHistory nacosRefreshHistory) {
+        return new NacosContextRefresher(nacosConfigManager, nacosRefreshHistory);
     }
 }

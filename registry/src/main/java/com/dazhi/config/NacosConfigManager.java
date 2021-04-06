@@ -1,5 +1,6 @@
 package com.dazhi.config;
 
+
 import com.dazhi.naming.api.config.ConfigService;
 import com.dazhi.naming.api.config.NacosFactory;
 
@@ -25,6 +26,14 @@ public class NacosConfigManager {
                 } catch (Exception var4) {
                 }
             }
+        }
+
+        return service;
+    }
+
+    public ConfigService getConfigService() {
+        if (Objects.isNull(service)) {
+            createConfigService(this.nacosConfigProperties);
         }
 
         return service;

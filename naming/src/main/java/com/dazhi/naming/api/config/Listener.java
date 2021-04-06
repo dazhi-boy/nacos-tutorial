@@ -3,6 +3,7 @@ package com.dazhi.naming.api.config;
 import java.util.concurrent.Executor;
 
 public interface Listener {
+
     /**
      * Get executor for execute this receive
      *
