@@ -2,6 +2,7 @@ package com.dazhi.core.demo;
 
 import com.alibaba.csp.sentinel.Entry;
 import com.alibaba.csp.sentinel.SphU;
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.alibaba.csp.sentinel.slots.block.RuleConstant;
 import com.alibaba.csp.sentinel.slots.block.flow.FlowRule;
@@ -22,9 +23,10 @@ public class OrderController {
 
     @RequestMapping("/getOrder")
     @ResponseBody
+    @SentinelResource()
     public String queryOrder1(@RequestParam("orderId") String orderId) {
-
-        Entry entry = null;
+        return orderId;
+        /*Entry entry = null;
         // 资源名
         String resourceName = KEY;
         try {
@@ -43,13 +45,13 @@ public class OrderController {
             if (entry != null) {
                 entry.exit();
             }
-        }
+        }*/
     }
 
     /**
      * 初始化限流配置
      */
-    @PostConstruct
+    /*@PostConstruct
     public void initFlowQpsRule() {
         List<FlowRule> rules = new ArrayList<FlowRule>();
         FlowRule rule1 = new FlowRule();
@@ -61,5 +63,5 @@ public class OrderController {
         rule1.setLimitApp("default");
         rules.add(rule1);
         FlowRuleManager.loadRules(rules);
-    }
+    }*/
 }

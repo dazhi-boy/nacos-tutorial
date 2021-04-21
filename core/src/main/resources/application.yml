@@ -1,2 +1,9 @@
 server:
   port: 38848
+
+spring:
+  cloud:
+    sentinel:
+      transport:
+        port: 8719
+        dashboard: localhost:8080
