@@ -13,7 +13,7 @@ public class OrderController {
 
     @RequestMapping("/getOrder")
     @ResponseBody
-    @SentinelResource()
+    @SentinelResource(value = KEY)
     public String queryOrder1(@RequestParam("orderId") String orderId) {
         return orderId;
         /*Entry entry = null;

@@ -23,7 +23,29 @@ public class SentinelResourceAspect {
         if (annotation == null) {
             throw new IllegalStateException("Wrong state for SentinelResource annotation");
         } else {
-            return null;
+            Object var18;
+            String resourceName = this.getResourceName(annotation.value(), originMethod);
+            Object result = pjp.proceed();
+            var18 = result;
+            return var18;
+        }
+    }
+
+    protected String getResourceName(String resourceName, Method method) {
+        return !isBlank(resourceName) ? resourceName : MethodUtil.resolveMethodName(method);
+    }
+    public static boolean isBlank(String str) {
+        int strLen;
+        if (str != null && (strLen = str.length()) != 0) {
+            for(int i = 0; i < strLen; ++i) {
+                if (!Character.isWhitespace(str.charAt(i))) {
+                    return false;
+                }
+            }
+
+            return true;
+        } else {
+            return true;
         }
     }
 
